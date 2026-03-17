@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>  
+
+       <title>ORION 11+ UI V2.20    </title>
+    <link rel="icon" type="image/x-icon" href="./imgs/Radio.ico">
+    <style> 
+		.mycontainer 
+		{ 
+			background-color: rgb(19, 19, 19); 
+            /* background-color: rgb(49, 49, 49);  */
+			border-radius: 15px; 
+			box-shadow: 0 5px 20px rgba(0, 0, 0, 0.9); 
+			Zoom: 85%; 
+			padding:10px; 
+			padding-top:10px;
+			padding-left: auto;
+			padding-right: auto; 
+			margin-top: 30px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom:10px;
+			width: 720px;
+            display: flex;
+            
+		} 
+
+		.container-h, .container-1 ,.container-2, .container-3,.container-4{
+			display: flex;
+            
+            flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+            align-items: center;
+			/* height: 100px; */
+			margin: 1px;
+            margin-left: 1px;
+            margin-right: 1px;
+			padding: 1px;
+	
+		}
+
+		.network ,.parameterBlock{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 50px;
+			width: auto;
+			padding: 10px 10px;
+			border: 1px solid rgb(14, 12, 10);
+			border-radius:5px;
+			margin: 1px;
+			margin-right: 1px;
+            margin-left: 10px;
+        }
+
+
+        .channel{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 50px;
+			width: auto;
+			padding: 10px 10px;
+			border: 1px solid rgb(14, 12, 10);
+			border-radius:5px;
+			margin: 1px;
+			margin-right: 10px;
+            margin-left: 10px;
+        }
+
+
+
+		#CtlName{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+            margin-bottom: 1px; 
+
+		}
+
+
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 10px ;
+            margin-bottom: 10px ;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 2px solid rgb(233, 122, 18);
+        }
+
+        .separator:not(:empty)::before {
+            margin-right: .25em;
+        }
+
+        .separator:not(:empty)::after {
+            margin-left: .25em;
+        }
+	</style> 
+
+</head>
+
+<body>
+    
+    <div class="mycontainer" id="mycontainerwidth">
+
+        <!-- Start of Orion 11 -->
+        <div style="width:600px; margin-left: 50px; margin-right: 25px;" id="Orion11UI">
+            <div id="CtlName">
+                <h3 style="margin:0px; color:  rgb(232, 89, 7);" ><b>ORION 11+</b></h3>
+                <p id = "J1SelftestValueSetting">500</p>
+            </div>
+
+            <hr  style="height:2px; border-width:2; color:2px solid rgb(233, 122, 18) ; margin:7px" >
+
+            <div class="container-h" style=" justify-content: space-between; ">	
+
+                <div class="parameterBlock" style="border-color: white; margin-left: 5px;">
+                    <img id="J1Fan"  src="imgs/FanStop.png" alt="FAN" width="35px" height="35px">
+                </div>
+
+                <div class="parameterBlock" style="border-color: white; margin-left: 5px;">
+                    <img id="J1RfRl_icon" src="imgs/Frequency .png" alt="RFRL" width="35px" height="35px">
+                </div>
+
+                <div class="parameterBlock"  style="border-color: white; margin-left: 5px; color: white;" > 
+                        <h5  class="parameterValue" id="J1Volt">00.0 </h5><h5><b>V</b></h5>
+                </div>
+
+                <div class="parameterBlock" id="J1TH" style="border-color: white; margin-left: 5px; color: white;"> 
+                        <h5 class="parameterValue" id="J1Temp">000</h5><h5><b> &#8451</b></h5>
+                </div>
+                <!-- <div class="parameterBlock" id="J1TH"> 
+					<h5 class="parameterValue" id="J1Temp">000</h5><h5><b> &#8451</b></h5>
+			    </div> -->
+
+                <div class="network" style="border-color: white; margin-left: 5px;">
+                    <input type="text" class="ModuleIP mr-1" id="J1IPAddress" placeholder="IP address"  style="width:150px">
+                    <button type="button" class="btn btn-outline-primary btn-sm ml-1" id="J1ONFF">connect</button>
+                </div>
+            </div> 
+            
+            <div class="separator" style="color: white;">FIXED RF CHANNEL</div>
+
+            <div class="container-1" style=" justify-content: space-between ;">
+
+                <div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M1H"><h6 id="J1lb1">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M1" >
+							</div>
+								
+					</div>
+				</div>
+
+				<div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M2H"><h6 id="J1lb2">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M2" >
+							</div>	
+					</div>
+				</div>
+				
+				<div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M3H"><h6  id="J1lb3">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M3" >
+							</div>	
+					</div>
+				</div>
+				
+				<div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M4H"><h6 id="J1lb4">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M4" >
+							</div>	
+					</div>
+				</div>
+
+                <div class="card bg-light mr-2" style="width:106px;" >
+                    <!-- <div class="card-header" id="J1RFRLH"><h6 id="J1lbRFRL">RF RL</h6></div> -->
+                    <div style="padding: 1rem 0.2rem;">
+                            <div>
+                                <input class="form-check-input" style="margin-bottom: 1.4rem;" checked="checked" type="radio" name="RFRLG" id="J1RFRL" onclick="change_RFRLG(this)" >&nbsp;Directional<br>
+                                <input class="form-check-input" type="radio" name="RFRLG" id="J1RFRL2" onclick="change_RFRLG(this)">&nbsp;Omni
+                            </div>	
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="separator" style="color: white;"></div>
+            
+            <div class="container-1" style=" justify-content: space-between ;">
+                <div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M5H"><h6 id="J1lb5">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M5" >
+							</div>	
+					</div>
+				</div>
+				
+				<div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M6H"><h6  id="J1lb6">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M6" >
+							</div>	
+					</div>
+				</div>
+				
+				<div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M7H"><h6  id="J1lb7">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M7" >
+							</div>	
+					</div>
+				</div>
+				
+				<div class="card bg-light text-center mr-2" style="width:100px;" >
+					<div class="card-header" id="J1M8H"><h6 id="J1lb8">433MHz</h6></div>
+					<div class="card-body">
+							<div class="form-check form-switch" style="padding:0px 55px;">
+								<input class="form-check-input" type="checkbox" id="J1M8" >
+							</div>	
+					</div>
+				</div>
+
+                <div class="card bg-light text-center mr-2" style="width:100px;" >
+                    <div class="card-header" id="J1AUXH"><h6 id="J1lbAUX">AUX RL</h6></div>
+                    <div class="card-body">
+                            <div class="form-check form-switch" style="padding:0px 55px;">
+                                <input class="form-check-input" type="checkbox" id="J1AUXRL" >
+                            </div>	
+                    </div>
+                </div>
+            
+                
+            </div>
+
+            <div class="separator" style="color: white;"></div>
+
+            <div class="container-1" style=" justify-content: space-between ;margin-right: 20px; margin-top:27px; margin-bottom: 23px;">
+                
+                    <div class="parameterBlock" style="border-color: white; margin-left: 2px;">
+                        <select name="Interval" id="J1setInterval">
+                            <option value="1" selected>Normal</option>
+                            <option value="2">5-Sec</option>
+                            <option value="3">10-Sec</option>
+                            <option value="4">15-Sec</option>
+                            <option value="5">20-Sec</option>
+                            <option value="6">25-Sec</option>
+                            <option value="7">30-Sec</option>
+                        </select>
+                    </div>   
+                    
+                    <button type="button" class="btn btn-outline-warning  btn-sm ml-1 mr-1" id="J1STB" style="height: 70px; margin-right: 3px;">Self Test</button>
+
+                    <button type="button" class="btn btn-outline-danger btn-sm ml-1 mr-1" id="J1TX" style="height: 70px; margin-right: 3px;">Transmit</button>
+
+                    <button type="button" class="btn btn-outline-success btn-sm ml-1 mr-1" id="J1ST" style="height: 70px; margin-right: 3px;">Stop--TX</button>
+
+            </div>    
+
+            <div class="separator" style="color: white;"></div>
+            
+            <div class="container-h" style=" justify-content:center; ">
+                <div class="alert alert-danger text-center" role="alert" id="J1systemError">
+                    ORION 11 System Error, Faulty Transmit Output! 
+                </div>
+            </div>            
+            <div calss = "EngineeringMode" id="EngMode"><h5 style="text-align:center; color:white;">Engineering mode</h5></div>           
+		</div>
+
+		<hr>
+
+        <!-- End of Orion11 -->
+
+        
+
+    </div>
+
+    <footer style="color:gray; text-align:center; margin-top:0px">
+        &copy; <em id="date"></em>Copyright 2023 @ TRD Singapore 
+    </footer>
+
+
+    <script src="js/UIconfig.js"></script>
+    <script src="js/label11.js"></script>
+	<script src="js/main11_primary.js"></script>
+
+
+  
+</body>
+</html>
